@@ -2,7 +2,8 @@
 window.addEventListener("load", function () {
     userLocalStorageSetUp();
     createIngridientSelect();
-    unitSelect();
+    let unitSelectId = document.getElementById("unitSelectId");
+    unitSelect(unitSelectId);
     let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
     let createMode = true;
     createEveryVendorRow(vendorDetail, createMode);
@@ -21,14 +22,8 @@ function createIngridientSelect() {
     let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
     let ingridientSelect = document.getElementById("ingridientSelect");
     let appendValue = document.getElementById("appendValue");
-    autoComplete(ingridientSelect, ingridientDetail, appendValue);
-}
-// Unit Value From Local Storage
-function unitSelect() {
-    let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
-    let unitSelect = document.getElementById("unitSelect");
-    unitDetail.forEach(elem => {
-        createElements(unitSelect, "option", "unitOption", null, elem.unit, elem.Id, null)
+    ingridientSelect.addEventListener("keyup", function () {
+        autoComplete(ingridientSelect, ingridientDetail, appendValue);
     });
 }
 // To Create The Vendor Name from records and Price and Sub Button as per no. of Vendor; 
@@ -49,20 +44,16 @@ function createEveryVendorRow(localArray, condition) {
         let priceInput;
         if (!mode) {
             vendorDetail.forEach(el => {
-                debugger;
                 if (el.Id == element.vendorId) {
                     vendorSpan = createElements(vendorDiv, "span", " vendorName", null, el.vendorname, null, null);
                     priceInput = createElements(priceDiv, "input", "form-control inputForm vendorName", null, null, element.price, "money");
                 }
             });
         }
-        else {
-            debugger;
+        else if (mode) {
             vendorSpan = createElements(vendorDiv, "span", " vendorName", null, element.vendorname, null, null);
-            priceInput = createElements(priceDiv, "input", "form-control inputForm vendorName", null, null, null, "money");
-
+            priceInput = createElements(priceDiv, "input", "form-control inputForm vendorName", null, element.price, null, "money");
         }
-        debugger;
         vendorSpan.setAttribute("data-isspecial-type", "span");
         priceInput.setAttribute("placeholder", "Price");
         priceInput.setAttribute("step", "0.01");
@@ -89,7 +80,6 @@ let submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", function () {
     let inputForm = document.querySelectorAll(".inputForm");
     if (validation(inputForm)) {
-        alert("Succesfully Validate");
         let table = document.getElementById("tblData");
         let vendorIngridientDetail = JSON.parse(localStorage.getItem("vendorIngridientDetail"));
         if (vendorIngridientDetail === null) {
@@ -114,14 +104,10 @@ function vendorIngridientDetailToLocalStorage(input, table, array, crntBtn) {
             switch (selectType) {
                 case "select":
                     if (element.id === "ingridientSelect") {
-                        let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
-                        ingridientDetail.forEach(e => {
-                            if (e.ingridientname == element.value) {
-                                array[objIndex].ingridientId = e.Id;
-                            }
-                        });
+                        let ingridientId = getIngridientValueToId(element.value);
+                        array[objIndex].ingridientId = ingridientId;
                     }
-                    else if (element.id === "unitSelect") {
+                    else if (element.id === "unitSelectId") {
                         array[objIndex].unitId = element.value;
                     }
                     break;
@@ -138,14 +124,10 @@ function vendorIngridientDetailToLocalStorage(input, table, array, crntBtn) {
             switch (selectType) {
                 case "select":
                     if (element.id === "ingridientSelect") {
-                        let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
-                        ingridientDetail.forEach(e => {
-                            if (e.ingridientname == element.value) {
-                                objectDetail.ingridientId = e.Id;
-                            }
-                        });
+                        let ingridientId = getIngridientValueToId(element.value);
+                        objectDetail.ingridientId = ingridientId;
                     }
-                    else if (element.id === "unitSelect") {
+                    else if (element.id === "unitSelectId") {
                         objectDetail.unitId = element.value;
                     }
                     break;
@@ -186,18 +168,7 @@ function createObjectOfVendorPrice(emptyArray) {
     })
     return emptyArray;
 }
-// Sort Function Of Array Id Number
-function sort(array) {
-    let ids = array.map((a) => a.Id);
-    let idsLength = 0;
-    ids.sort(function (a, b) {
-      return b - a;
-    });
-    if (ids.length > 0) {
-      idsLength = Number(ids[0]);
-    }
-    return idsLength;
-}
+
 // Reset Function
 function resetInputForm(input) {
     input.forEach(ele => {
@@ -226,24 +197,15 @@ function tableCall(table, array) {
             let textNodeId = document.createTextNode(per.Id);
             cellId.appendChild(textNodeId);
             let cellname = createElements(row, "td", "tableEachCell", null, null, null, "col");
-            let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
-            ingridientDetail.forEach(el => {
-                if (el.Id === per.ingridientId) {
-                    let textNodename = document.createTextNode(el.ingridientname);
-                    cellname.appendChild(textNodename);
-                }
-            });
+            let ingridientvalue = getIngridientIdToValue(per.ingridientId);
+            let textNodename = document.createTextNode(ingridientvalue);
+            cellname.appendChild(textNodename);
             let cellUnit = createElements(row, "td", "tableEachCell", null, null, null, "col");
-            let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
-            unitDetail.forEach(e => {
-                if (per.unitId == e.Id) {
-                    let textNodeUnit = document.createTextNode(e.unit);
-                    cellUnit.appendChild(textNodeUnit);
-                }
-            });
+            let unit = getUnitIdToValue(per.unitId)
+            let textNodeUnit = document.createTextNode(unit);
+            cellUnit.appendChild(textNodeUnit);
             let cellVendorPrice = createElements(row, "td", "tableEachCell", null, null, null, "col");
             let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
-            // console.log(per.vendorsPrice);
             per.vendorsPrice.forEach(ele => {
                 let rowVendor = createElements(cellVendorPrice, "tr", "tableEachRowVendor d-flex justify-content-between", null, null, null, "row");
                 vendorDetail.forEach(e => {
@@ -279,14 +241,10 @@ function editClick(editButton) {
     vendorIngridientDetail.forEach(e => {
         if (e.Id == parentChildren[0].innerText) {
             let ingridientSelect = document.getElementById("ingridientSelect");
-            let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
-            ingridientDetail.forEach(el => {
-                if (el.Id == e.ingridientId) {
-                    ingridientSelect.value = el.ingridientname;
-                }
-            });
-            let unitSelect = document.getElementById("unitSelect");
-            unitSelect.value = e.unitId;
+            let ingridientValue = getIngridientIdToValue(e.ingridientId)
+            ingridientSelect.value = ingridientValue;
+            let unitSelectId = document.getElementById("unitSelectId");
+            unitSelectId.value = e.unitId;
             let editMode = false;
             createEveryVendorRow(e.vendorsPrice, editMode);
         }
@@ -294,9 +252,9 @@ function editClick(editButton) {
 }
 // Delete User Click Event
 function deleteUser(deleteBtn) {
-    if (confirm("Do you want to Delete this From List?")){
+    if (confirm("Do you want to Delete this From List?")) {
         let parentTr = deleteBtn.parentNode.parentNode;
-        if(parentTr !== null){
+        if (parentTr !== null) {
             let vendorIngridientId = parentTr.children[0].innerText;
             parentTr.parentNode.removeChild(parentTr);
             let vendorIngridientDetail = JSON.parse(localStorage.getItem("vendorIngridientDetail"));

@@ -1,26 +1,13 @@
 // Window On Load
 window.addEventListener('load', function () {
     userLocalStorageSetUp();
-    qtySelect();
-    unitSelect();
+    let qtySelectId = document.getElementById("qtySelectId");
+    let unitSelectId = document.getElementById("unitSelectId");
+    qtySelect(qtySelectId); 
+    unitSelect(unitSelectId);
     tableCall();
 }, false);
-// Quantity Value From Local Storage
-function qtySelect() {
-    let qtyDetail = JSON.parse(localStorage.getItem("qtyDetail"));
-    let qtySelect = document.getElementById("qtySelect");
-    qtyDetail.forEach(elem => {
-        createElements(qtySelect, "option", "qtyOption", null, elem.quantity, elem.Id, null)
-    });
-}
-// Unit Value From Local Storage
-function unitSelect() {
-    let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
-    let unitSelect = document.getElementById("unitSelect");
-    unitDetail.forEach(elem => {
-        createElements(unitSelect, "option", "unitOption", null, elem.unit, elem.Id, null)
-    });
-}
+
 // Empty Array To local Storage
 function userLocalStorageSetUp() {
     let ingridientDetailP = localStorage.getItem("ingridientDetail");
@@ -62,8 +49,8 @@ function ingridientDetailToLocalStorage(crntBtn) {
                     break;
             }
         });
-        ingridientDetail[objIndex].qtyId = document.getElementById("qtySelect").value;
-        ingridientDetail[objIndex].unitId = document.getElementById("unitSelect").value;
+        ingridientDetail[objIndex].qtyId = document.getElementById("qtySelectId").value;
+        ingridientDetail[objIndex].unitId = document.getElementById("unitSelectId").value;
     } 
     else{
         maxId = sort(ingridientDetail);
@@ -79,8 +66,8 @@ function ingridientDetailToLocalStorage(crntBtn) {
                     break;
             }
         });
-        objectDetail.qtyId = document.getElementById("qtySelect").value;
-        objectDetail.unitId = document.getElementById("unitSelect").value;
+        objectDetail.qtyId = document.getElementById("qtySelectId").value;
+        objectDetail.unitId = document.getElementById("unitSelectId").value;
         ingridientDetail.push(objectDetail);
     }   
         
@@ -88,18 +75,7 @@ function ingridientDetailToLocalStorage(crntBtn) {
     resetInputForm(input);
     tableCall();
 }
-  // Sort Function Of Array Id Number
-  function sort(array) {
-    let ids = array.map((a) => a.Id);
-    let idsLength = 0;
-    ids.sort(function (a, b) {
-      return b - a;
-    });
-    if (ids.length > 0) {
-      idsLength = Number(ids[0]);
-    }
-    return idsLength;
-  }
+
 // Reset Function
 function resetInputForm(input) {
     input.forEach(ele => {
@@ -180,7 +156,7 @@ function editClick(editButton) {
                 element.value = parentChildren[4].innerText;
                 break;
             case "select":
-                if (element.id === "qtySelect") {
+                if (element.id === "qtySelectId") {
                     let qtyDetail = JSON.parse(localStorage.getItem("qtyDetail"));
                     qtyDetail.forEach(el => {
                         if (el.quantity == parentChildren[2].innerText) {
@@ -188,7 +164,7 @@ function editClick(editButton) {
                         }
                     });
                 }
-                else if (element.id === "unitSelect") {
+                else if (element.id === "unitSelectId") {
                     let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
                     unitDetail.forEach(el => {
                         if (el.unit == parentChildren[3].innerHTML) {

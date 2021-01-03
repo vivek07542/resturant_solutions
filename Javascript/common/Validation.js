@@ -9,15 +9,17 @@ function validation(input) {
     // Loop For Nodelist
     input.forEach(element => {
         specialType = element.getAttribute("data-isspecial-type");
-        if (element.getAttribute("data-isrequired") === "true" && element.getAttribute("data-isspecial") === "false") {
+        let isRequiredCondition = element.getAttribute("data-isrequired");
+        let isSpecialCondition = element.getAttribute("data-isspecial");
+        if (isRequiredCondition && !isSpecialCondition) {
             requiredValidate = isRequired(element);
             specialValidate = true;
         }
-        else if (element.getAttribute("data-isrequired") === "false" && element.getAttribute("data-isspecial") === "true") {
+        else if (!isRequiredCondition && isSpecialCondition) {
             requiredValidate = true;
             specialValidate = isSpecial(element, specialType);
         }
-        else if (element.getAttribute("data-isrequired") === "true" && element.getAttribute("data-isspecial") === "true") {
+        else if (isRequiredCondition && isSpecialCondition) {
             requiredValidate = isRequired(element);
             specialValidate = isSpecial(element, specialType);
         }
