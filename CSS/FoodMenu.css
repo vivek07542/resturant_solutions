@@ -1,0 +1,37 @@
+.tblDiv{
+    width:100%;
+}
+/* .tableEachCell{
+   text-transform:capitalize;
+}
+tr td:nth-last-child(2){
+    text-transform: lowercase;
+} */
+#appendValue{
+    width:205px;
+    /* min-height: 100px; */
+    height: auto;
+    background-color: white;
+    position: absolute;
+    top:47px;
+    border:1px solid rgb(230,230,230);
+    right:65px;
+    z-index: 100;
+    /* display: flex;     */
+    justify-content: start;
+    text-align: start;
+    display: none;
+    border-radius: 5px;
+}
+#appendValue ul{
+    margin:0;
+    padding:0;
+    border:1px solid rgba(0,0,0,0.2);
+    /* height: 30px; */
+    width:100%;
+    list-style: none;
+}
+#appendValue ul:hover{
+    background-color: rgba(0,0,0,0.2);
+    border:1px solid white;   
+}

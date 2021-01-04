@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
     unitSelect(unitSelectId);
     let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
     let createMode = true;
-    createEveryVendorRow(vendorDetail, createMode);
+    createEveryVendorRow(vendorDetail,createMode);
 });
 // Load Array To The Empty Array
 function userLocalStorageSetUp() {
@@ -14,11 +14,11 @@ function userLocalStorageSetUp() {
     if (vendorIngridientDetailP !== null) {
         let table = document.getElementById("tblData");
         let vendorIngridientDetail = JSON.parse(localStorage.getItem("vendorIngridientDetail"));
-        tableCall(table, vendorIngridientDetail)
+        tableCall(table, vendorIngridientDetail);
     }
 }
 // Append Value To Select In Ingridient Name
-function createIngridientSelect() {
+function createIngridientSelect(){
     let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
     let ingridientSelect = document.getElementById("ingridientSelect");
     let appendValue = document.getElementById("appendValue");
@@ -28,12 +28,10 @@ function createIngridientSelect() {
 }
 // To Create The Vendor Name from records and Price and Sub Button as per no. of Vendor; 
 function createEveryVendorRow(localArray, condition) {
-    debugger;
     let mode = condition;
     let vendorRowMainDiv = document.getElementById("vendorRowDiv");
     vendorRowMainDiv.innerHTML = "";
     localArray.forEach(element => {
-        debugger;
         let vendorRowDiv = createElements(vendorRowMainDiv, "div", "col-12 py-2 form-inline d-flex justify-content-between vendorRow", null, null, null, null);
         let vendorDiv = createElements(vendorRowDiv, "div", "col-5 py-2 form-inline d-flex justify-content-around", null, null, null, null);
         let vendorLabel = createElements(vendorDiv, "label", "form-label", null, "Vendor Name :", null, null);

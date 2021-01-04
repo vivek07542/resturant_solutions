@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/IngridientReciepe.css">
+    <link rel="stylesheet" href="../CSS/ReciepeGenerator.css">
     <link rel="stylesheet" href="../CSS/Validation.css">
     <link rel="stylesheet" href="../CSS/Template.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -59,13 +60,17 @@
         <div class="vendorMasterDiv">
             <div class="jumbotron bg-light">
                 <h2 class="display-4 text-center">Ingridient Reciepe Master</h2>
-                <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With Border Red</small>
+                <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
+                    Border Red</small>
                 <form class="form-group" autocomplete="off">
                     <div class="form-row text-center d-flex justify-content-around" id="textLabel">
-                        <div class="col-6 py-2 form-inline d-flex justify-content-around" >
+                        <div class="col-6 py-2 form-inline d-flex justify-content-around">
                             <label class="form-label"> Food Item Name : </label>
-                            <input type="text" class="form-control inputForm" placeholder="Food Name"
+                            <input type="text" class="form-control inputForm" id="foodText" placeholder="Food-Name"
                                 data-isrequired="true" data-isspecial="false" data-isspecial-type="foodname">
+                            <div id="appendValue" class="row">
+
+                            </div>
                         </div>
                         <div class="col-4 py-2 form-inline d-flex justify-content-around">
                             <label class="form-label"> Serving For : </label>
@@ -86,37 +91,19 @@
                             </select>
                         </div>
                     </div>
-                    <!-- create Ingridient Row -->
-                    <div class="form-row text-center d-flex justify-content-around py-2" id="ingridientRowDiv">
-                    
-                    </div>
-                    <!-- Total Row -->
-                    <div class="form-row text-center d-flex justify-content-end py-2" id= "totalTextLabel">
-                        <div class="col-12 py-2 form-inline d-flex justify-content-around">
-                            <label class="form-label"> Total Price : </label>
-                            <input type="number" class="form-control inputForm " id="totalPriceInput" placeholder="Price" step="0.01" data-isrequired="true"
-                            data-isspecial="false" data-isspecial-type="number" name="money">
-                        </div> 
-                    </div>
-                    <!-- Reciepe Description -->
-                    <div class="form-row text-center d-flex justify-content-around py-2" id="addressTextLabel">
-                        <div class="col-9 py-2">
-                            <label class="form-label"> Food Item Reciepe Description : </label>
-                            <textarea type="text" class="form-control inputForm" placeholder="Reciepe Description" rows="3"
-                                data-isrequired="true" data-isspecial="false" data-isspecial-type="reciepe">
-                            </textarea>
-                        </div>
-                    </div>
+
                 </form>
-                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitBtn">SAVE</button>
+                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto"
+                    id="submitBtn">Generator</button>
             </div>
         </div>
         <div class="tableDiv py-3" id="tableDiv">
             <div class="jumbotron bg-light">
                 <h3 class="display-5 text-center">Reciepe's Chart</h3>
                 <div class="row justify-content-center py-3" id="foodItemDiv">
-             
-
+                </div>
+                <div class="row justify-content-center py-1" id = "survingFoodDiv">
+                    
                 </div>
             </div>
         </div>
@@ -148,7 +135,7 @@
         </div>
     </footer>
 </body>
-<script src="../Javascript/IngridientReciepe.js"></script>
+<script src="../Javascript/ReciepeGenerator.js"></script>
 <script src="../Javascript/common/Validation.js"></script>
 <script src="../Javascript/common/DropDownCreate.js"></script>
 <script src="../Javascript/common/CreateElement.js"></script>
