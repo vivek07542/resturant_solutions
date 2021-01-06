@@ -1,5 +1,6 @@
 // Sort Function Of Array Id Number
 function sort(array) {
+    debugger;
     let ids = array.map((a) => a.Id);
     let idsLength = 0;
     ids.sort(function (a, b) {

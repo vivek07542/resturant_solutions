@@ -35,6 +35,12 @@ function callFunction(emptyArray, div, input) {
     });
 }
 
+// Click Event on Li 
+// function clickEventForLi(li, input, div) {
+//     input.value = li.innerText;
+//     div.style.display = "none";
+// }
+
 
 function autoCompleteFoodItem(input, array, div){
     let emptyArray = [];

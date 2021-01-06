@@ -89,3 +89,31 @@ function getUnitValueToId(element){
     console.log(unitId);
     return unitId;
 }    
+
+function createSelectOption(element){
+ for(i=1;i<=10;i++){
+    createElements(element, "option", "unitOption", null,i, i, null)
+ }   
+}
+
+function createMenuValueToId(element){
+    let menuDetail = JSON.parse(localStorage.getItem("menuReciepeDetail"));
+    let menuId;
+    menuDetail.forEach(el =>{
+        if(element == el.fooditem){
+            menuId = el.Id;
+        }
+    })
+    return menuId;
+}
+
+function createMenuIdToValue(element){
+    let menuDetail = JSON.parse(localStorage.getItem("menuReciepeDetail"));
+    let menuValue;
+    menuDetail.forEach(el =>{
+        if(element == el.Id){
+            menuValue = el.fooditem;
+        }
+    });
+    return menuValue;
+}
