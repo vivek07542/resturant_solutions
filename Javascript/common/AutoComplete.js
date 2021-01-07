@@ -77,3 +77,41 @@ function callFunctionItem(emptyArray, div, input) {
         });
     });
 }
+
+// Vendor AutoComplet
+function autoCompleteVendor(input, array, div){
+    let emptyArray = [];
+    array.forEach(element => {
+        let matchValue = element.vendorname.match(input.value);
+        if (matchValue !== null) {
+            let objIndex = array.findIndex((obj => obj.vendorname == matchValue.input));
+            let object = {};
+            object.Id = array[objIndex].Id;
+            object.vendorname = array[objIndex].vendorname;
+            div.style.display = "flex";
+            emptyArray.push(object);
+            callFunctionVendor(emptyArray, div, input);
+        }
+        else {
+            let inputValue = input.value;
+            let inputLength = inputValue.length;
+            if (inputLength > 6) {
+                if (confirm("This Vendor Not In List..Please Click to Add")) {
+                    window.location.href = "VendorMaster.html";
+                }
+            }
+        }
+    });
+}
+
+// Create Ul Li Using Array 
+function callFunctionVendor(emptyArray, div, input) {
+    div.innerHTML = "";
+    emptyArray.forEach(el => {
+        let vendorUl = createElements(div, "ul", "col-12 ingridientNameUl", null, null, null, null);
+        let vendorli = createElements(vendorUl, "li", "col-12 ingridientNameLi", null, el.vendorname, null, null)
+        vendorli.addEventListener("click", function () {
+            clickEventForLi(vendorli, input, div);
+        });
+    });
+}
