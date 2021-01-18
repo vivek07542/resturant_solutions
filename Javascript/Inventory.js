@@ -196,32 +196,7 @@ function subRowDeleteBtn(subDeleteBtn) {
         });
     }
 }
-// Function Ingridient Price Calculation
-function ingridientPriceCalculation(inputIngridient, qtySelect, unitSelect) {
-    let reciepeRequiredPrice;
-    let ingridientDetail = JSON.parse(localStorage.getItem("ingridientDetail"));
-    ingridientDetail.forEach(element => {
-        if (element.ingridientname == inputIngridient.value) {
-            let ingridientQty = getQtyIdToValue(element.qtyId)
-            let ingridientPrice = Number(element.price);
-            let ingridientUnit = getUnitIdToValue(element.unitId);
-            let reciepeRequiredQty = getQtyIdToValue(qtySelect.value);
-            let reciepeRequiredUnit = getUnitIdToValue(unitSelect.value);
-            if (ingridientUnit === reciepeRequiredUnit) {
-                reciepeRequiredPrice = Math.ceil(ingridientPrice / ingridientQty) * reciepeRequiredQty;
-            }
-            else {
-                if (reciepeRequiredUnit == "gram" || reciepeRequiredUnit == "ml") {
-                    reciepeRequiredPrice = Math.ceil(ingridientPrice / ingridientQty) * reciepeRequiredQty / 1000;
-                }
-                else if (reciepeRequiredUnit == "kg" || reciepeRequiredUnit == "litre") {
-                    reciepeRequiredPrice = Math.ceil(ingridientPrice / ingridientQty) * reciepeRequiredQty * 1000;
-                }
-            }
-        }
-    });
-    return reciepeRequiredPrice;
-}
+
 // Sum Price Function
 function sumUpPrice(calValue, inputPrice) {
     let totalPriceInput = document.getElementById("totalPriceInput")
@@ -449,7 +424,7 @@ function tableCall() {
                     let textNodename = document.createTextNode(ingridientValue);
                     cellname.appendChild(textNodename);
                     let cellVendorname = createElements(row, "td", "tableEachCell eachInputItem", null, null, null, "col");
-                    let vendorValue =  getIngridientIdToValue(per.vendorId);
+                    let vendorValue =  createVendorIdToValue(per.vendorId);
                     let textVendorNodename = document.createTextNode(vendorValue);
                     cellVendorname.appendChild(textVendorNodename);
                     let cellQty = createElements(row, "td", "tableEachCell eachInputItem", null, null, null, "col");

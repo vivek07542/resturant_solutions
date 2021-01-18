@@ -43,7 +43,7 @@ function clickEventForLi(li, input, div) {
     input.value = li.innerText;
     div.style.display = "none";
     document.getElementById("foodItemDiv").innerHTML = "";
-    tableCall(input);
+    // tableCall(input);
 }
 
 function tableCall(input) {
@@ -179,12 +179,14 @@ function tableAsPerSurving(objectOfValue) {
 };
 
 function qtyCalculation(quantity, selectedServing, serving) {
+    debugger;
     let newQuantity = Math.ceil(Number(quantity) / Number(serving)) * Number(selectedServing);
     return newQuantity;
 }
 
 function priceCalculation(newQuantity, ingridientcost, quantity) {
-    let newPrice = Math.ceil(Number(ingridientcost) / Number(quantity)) * Number(newQuantity);
+    debugger;
+    let newPrice = Math.ceil((Number(ingridientcost) / Number(quantity)) * Number(newQuantity));
     return newPrice;
 }
 

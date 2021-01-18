@@ -185,12 +185,14 @@ function orderNumber() {
 // Discount Button Change event Function
 let discountInput = document.getElementById("discountInput");
 discountInput.addEventListener("change", function () {
+    debugger;
     let netTotal = netPayableAmount();
     let netPayableSpan = document.getElementById("netPayableSpan");
     netPayableSpan.innerText = netTotal;
 });
 // Net Payable Amount Calculation
 function netPayableAmount() {
+    debugger;
     let netTotal;
     let discountInput = document.getElementById("discountInput").value;
     let totalPriceInput = document.getElementById("totalPriceInput").value;
@@ -263,11 +265,9 @@ function detailToLocalStorageMenuId(menuIngridientId, orderDetail, input) {
                 case "discount":
                     orderDetail[objMenuIndex].discount = element.value;
                     break;
-                case "totalprice":
-                    orderDetail[objMenuIndex].totalprice = element.value;
-                    break;
             }
         });
+        orderDetail[objMenuIndex].totalprice = netPayableAmount();
         localStorage.setItem("orderDetail", JSON.stringify(orderDetail));
         return Number(menuIngridientId);
     }

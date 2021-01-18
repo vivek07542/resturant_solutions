@@ -9,7 +9,6 @@ tr td:nth-last-child(2){
 }
 #appendValue{
     width:205px;
-    /* min-height: 100px; */
     height: auto;
     background-color: white;
     position: absolute;
@@ -17,7 +16,6 @@ tr td:nth-last-child(2){
     border:1px solid rgb(230,230,230);
     right:53px;
     z-index: 100;
-    /* display: flex;     */
     justify-content: start;
     text-align: start;
     display: none;
@@ -27,7 +25,6 @@ tr td:nth-last-child(2){
     margin:0;
     padding:0;
     border:1px solid rgba(0,0,0,0.2);
-    /* height: 30px; */
     width:100%;
     list-style: none;
 }

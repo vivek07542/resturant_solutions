@@ -8,7 +8,7 @@ submitQtyBtn.addEventListener("click", function () {
     let qtyDiv = document.getElementById("qtyDiv");
     let inputForm = qtyDiv.querySelectorAll(".inputForm");
     if (validation(inputForm)) {
-        alert("Succesfully Validate");
+        // alert("Succesfully Validate");
         let qtyDetail = JSON.parse(localStorage.getItem("qtyDetail"));
         if (qtyDetail === null) {
             let qtyDetailsArray = [];
@@ -26,9 +26,6 @@ submitUnitBtn.addEventListener("click", function () {
     let unitDiv = document.getElementById("unitDiv");
     let inputForm = unitDiv.querySelectorAll(".inputForm");
     if (validation(inputForm)) {
-        alert("Succesfully Validate");
-        let unitDiv = document.getElementById("unitDiv");
-        let input = unitDiv.querySelectorAll(".inputForm");
         let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
         if (unitDetail === null) {
             let unitDetailsArray = [];
@@ -36,7 +33,7 @@ submitUnitBtn.addEventListener("click", function () {
         }
         let headers = ["Id", "Unit", "Action"];
         let table = document.getElementById("tblDataUnit");
-        detailToLocalStorage(input, unitDetail, "unitDetail", headers, table, this);
+        detailToLocalStorage(inputForm, unitDetail, "unitDetail", headers, table, this);
     }
 });
 // Create array For Qty & Unit
@@ -62,11 +59,13 @@ function userLocalStorageSetUp() {
 }
 // Push Qty Value To Local Storage
 function detailToLocalStorage(input, arrayDetail, arrayDetailToLocalStorage, headers, table, crntBtn) {
+    debugger;
     let objectDetail = {};
     let measureId = crntBtn.getAttribute("data-uniqueId") === null ? 0 : crntBtn.getAttribute("data-uniqueId");
     let isEditMode = measureId > 0 ? true : false;
     let maxId = 0;
     if (isEditMode) {
+        debugger;
         let objIndex = arrayDetail.findIndex((obj => obj.Id == measureId));
         input.forEach(element => {
             let selectType = element.getAttribute("data-isspecial-type");
@@ -143,8 +142,19 @@ function tableCall(localArray, headers, table, input) {
 function editClick(editButton, input, localArray) {
     let parentTr = editButton.parentNode.parentNode;
     let parentChildren = parentTr.querySelectorAll(".tableEachCell");
-    let btnSubmit = document.getElementById("submitBtn");
-    btnSubmit.setAttribute("data-uniqueId", parentChildren[0].innerText);
+    // let btnSubmit = document.getElementById("submitBtn");
+    debugger;
+    localArray.forEach(elem =>{
+        debugger;
+        if(elem.quantity === parentChildren[1].innerText){
+            let submitQtyBtn = document.getElementById("submitQtyBtn");
+            submitQtyBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);            
+        }
+        else if(elem.unit == parentChildren[1].innerText){
+            let submitUnitBtn = document.getElementById("submitUnitBtn");
+            submitUnitBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);
+        }
+    });
     input.forEach(e => {
         e.value = parentChildren[1].innerText;
     });

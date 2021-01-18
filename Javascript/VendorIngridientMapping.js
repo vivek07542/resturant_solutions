@@ -77,6 +77,7 @@ function subRowDeleteBtn(subDeleteBtn) {
 let submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", function () {
     let inputForm = document.querySelectorAll(".inputForm");
+    
     if (validation(inputForm)) {
         let table = document.getElementById("tblData");
         let vendorIngridientDetail = JSON.parse(localStorage.getItem("vendorIngridientDetail"));
@@ -86,8 +87,18 @@ submitBtn.addEventListener("click", function () {
             document.getElementById("tableDiv").style.display = "none";
         }
         vendorIngridientDetailToLocalStorage(inputForm, table, vendorIngridientDetail, this);
+        let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
+        let createMode = true;
+        createEveryVendorRow(vendorDetail,createMode);
     }
 });
+// Click Event on Li 
+function clickEventForLi(li, input, div) {
+    input.value = li.innerText;
+    div.style.display = "none";
+}
+
+
 // function To Append Details to Local Storage
 function vendorIngridientDetailToLocalStorage(input, table, array, crntBtn) {
     let objectDetail = {};

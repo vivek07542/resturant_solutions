@@ -67,7 +67,6 @@ function getIngridientValueToId(element){
             ingridientId = el.Id;
         }
     });
-    console.log(ingridientId);
     return ingridientId;
 }
 // function to convert Value To Id

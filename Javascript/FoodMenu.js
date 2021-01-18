@@ -85,11 +85,11 @@ function createTable() {
             let textNodeId = document.createTextNode(per.sellprice);
             cellFoodPrice.appendChild(textNodeId);
             let cellBtn = createElements(row, "td", "d-flex justify-content-around", "action", null, null, null, null);
-            let editBtn = createElements(cellBtn, "button", "btn btn-primary ", null, "Edit", null, null, "col")
+            let editBtn = createElements(cellBtn, "button", "btn btn-outline-dark ", null, "Edit", null, null, "col")
             editBtn.addEventListener("click", function () {
                 editClick(editBtn);
             });
-            let deleteBtn = createElements(cellBtn, "button", "btn btn-primary ", null, "Delete", null, null, "col")
+            let deleteBtn = createElements(cellBtn, "button", "btn btn-outline-dark ", null, "Delete", null, null, "col")
             deleteBtn.addEventListener("click", function () {
                 deleteClick(deleteBtn);
             });

@@ -1,12 +1,12 @@
 .tblDiv{
     width:100%;
 }
-/* .tableEachCell{
+.tableEachCell{
    text-transform:capitalize;
 }
 tr td:nth-last-child(2){
     text-transform: lowercase;
-} */
+} 
 #appendValue{
     width:205px;
     /* min-height: 100px; */

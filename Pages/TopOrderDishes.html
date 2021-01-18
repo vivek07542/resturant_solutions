@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/Inventory.css">
+    <link rel="stylesheet" href="../CSS/TopOrderDishes.css">
     <link rel="stylesheet" href="../CSS/Validation.css">
     <link rel="stylesheet" href="../CSS/Template.css">
 </head>
@@ -71,7 +71,7 @@
     <div class="container mainDiv">
         <div class="vendorMasterDiv">
             <div class="jumbotron bg-light">
-                <h2 class="display-4 text-center">Inventory Master</h2>
+                <h2 class="display-4 text-center">Top Order Report</h2>
                 <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With Border Red</small>
                 <form class="form-group" autocomplete="off">
                     <div class="form-row text-center d-flex justify-content-around" id="textLabel">
@@ -86,25 +86,26 @@
                             data-isspecial="true" data-isspecial-type="dateFrom" name="date">
                         </div>
                     </div>
-                    <!-- create Ingridient Row -->
-                    <div class="form-row text-center d-flex justify-content-around py-2" id="ingridientRowDiv">
-                    
-                    </div>
-                    <!-- Total Row -->
-                    <div class="form-row text-center d-flex justify-content-center py-2 pr-5" id= "totalTextLabel">
-                        <div class="col-7 py-2 pr-1 form-inline d-flex justify-content-around">
-                            <label class="form-label"> Total Price : </label>
-                            <input type="number" class="form-control inputForm" id="totalPriceInput" placeholder="Total Price" step="0.01" data-isrequired="true"
-                            data-isspecial="false" data-isspecial-type="totalPrice" name="money">
+                    <div class="form-row text-center d-flex justify-content-center py-2 pr-5" id= "selectTopDish">
+                        <div class="col-6 py-2 pr-1 form-inline d-flex justify-content-around">
+                            <label class="form-label"> Select Top Dishes : </label>
+                            <select class="inputForm form-control" id="selectTopDish" data-isrequired="false"
+                            data-isspecial="true" data-isspecial-type="topDishes">
+                                <option value="" disabled>Sel.Top Dishes</option>
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
                         </div> 
                     </div>
                 </form>
-                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitBtn">SAVE</button>
+                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitBtnTop">SHOW</button>
             </div>
         </div>
         <div class="tableDiv py-3" id="tableDiv">
             <div class="jumbotron bg-light">
-                <h3 class="display-5 text-center">Inventory's Chart</h3>
+                <h3 class="display-5 text-center">Top Order's Chart</h3>
                 <div class="row justify-content-center py-3" id="foodItemDiv">
              
 
@@ -139,7 +140,7 @@
         </div>
     </footer>
 </body>
-<script src="../Javascript/Inventory.js"></script>
+<script src="../Javascript/TopOrderDishes.js"></script>
 <script src="../Javascript/common/Validation.js"></script>
 <script src="../Javascript/common/DropDownCreate.js"></script>
 <script src="../Javascript/common/CreateElement.js"></script>

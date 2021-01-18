@@ -70,12 +70,10 @@ function ingridientDetailToLocalStorage(crntBtn) {
         objectDetail.unitId = document.getElementById("unitSelectId").value;
         ingridientDetail.push(objectDetail);
     }   
-        
     localStorage.setItem("ingridientDetail", JSON.stringify(ingridientDetail));
     resetInputForm(input);
     tableCall();
 }
-
 // Reset Function
 function resetInputForm(input) {
     input.forEach(ele => {
