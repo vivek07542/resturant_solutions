@@ -71,3 +71,6 @@ h1,h2,h3{
     #767676;
     color: white;
 }
+.inputForm{
+    text-transform:capitalize;
+}
