@@ -13,7 +13,7 @@ submitQtyBtn.addEventListener("click", function () {
         if (qtyDetail === null) {
             let qtyDetailsArray = [];
             let object ={};
-            unitDetailsArray.push(object);
+            qtyDetailsArray.push(object);
             localStorage.setItem("qtyDetail", JSON.stringify(qtyDetailsArray));
         }
         let headers = ["Id", "Qty", "Action"];
