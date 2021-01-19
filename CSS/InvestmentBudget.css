@@ -1,0 +1,12 @@
+.tblDiv{
+    width:100%;
+}
+#tblData{
+    width:100%;
+}
+.tableStructure{
+    width:100%;
+}
+.tableEachCell{
+   text-transform:capitalize;
+}
