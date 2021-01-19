@@ -12,8 +12,6 @@ submitQtyBtn.addEventListener("click", function () {
         let qtyDetail = JSON.parse(localStorage.getItem("qtyDetail"));
         if (qtyDetail === null) {
             let qtyDetailsArray = [];
-            let object ={};
-            qtyDetailsArray.push(object);
             localStorage.setItem("qtyDetail", JSON.stringify(qtyDetailsArray));
         }
         let headers = ["Id", "Qty", "Action"];
@@ -31,8 +29,6 @@ submitUnitBtn.addEventListener("click", function () {
         let unitDetail = JSON.parse(localStorage.getItem("unitDetail"));
         if (unitDetail === null) {
             let unitDetailsArray = [];
-            let object ={};
-            unitDetailsArray.push(object);
             localStorage.setItem("unitDetail", JSON.stringify(unitDetailsArray));
         }
         let headers = ["Id", "Unit", "Action"];
