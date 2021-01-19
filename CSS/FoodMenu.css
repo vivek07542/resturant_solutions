@@ -2,7 +2,7 @@
     width:100%;
 }
 .tableEachCell{
-   text-transform:capitalize;
+   text-transform:lowercase;
 }
 tr td:nth-last-child(2){
     text-transform: lowercase;
