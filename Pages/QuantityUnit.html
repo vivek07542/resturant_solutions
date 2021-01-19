@@ -11,16 +11,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/FoodMenu.css">
-  <link rel="stylesheet" href="CSS/Template.css">
-  <link rel="stylesheet" href="CSS/Validation.css">
+  <link rel="stylesheet" href="../CSS/Template.css">
+  <link rel="stylesheet" href="../CSS/Validation.css">
+  <link rel="stylesheet" href="../CSS/QuantityUnitMaster.css">
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">
-        <img class="navImage" src="Image/ResturantLogo.jpg" width="100" height="100" alt="">
+        <img src="../Image/ResturantLogo.jpg" width="100" height="100" alt="">
       </a>
       <a class="navbar-brand" href="#">The Indian Resturant</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -70,48 +70,68 @@
     </nav>
   </header>
   <div class="container mainDiv">
-    <div class="vendorMasterDiv">
+    <div class="qtyUnitDiv">
       <div class="jumbotron bg-light">
-        <h2 class="display-4 text-center">Food Menu</h2>
-        <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With Border
-          Red</small>
-        <form class="form-group">
-          <div class="form-row text-center justify-content-around">
-            <!-- Vendor Name -->
-             <!-- Ingridient Name -->
-             <div class="col-6 py-2 form-inline d-flex justify-content-around auto">
-                <label class="form-label"> Food Item : </label>
-                <input class="form-control inputForm" id="foodItemSelect" type="text" placeholder="Sel. Food Item" data-isrequired="false" 
-                data-isspecial="true" data-isspecial-type="select">
-                <div id="appendValue" class="row">
-                  
+        <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
+          Border Red</small>
+        <div class="row justify-content-around">
+          <div class="col-5" id="qtyDiv">
+            <h2 class="display-5 text-center">Qty Master</h2>
+            <form class="form-group">
+              <div class="form-row text-center justify-content-center">
+                <div class="col-10 py-2 form-inline d-flex justify-content-around">
+                  <label class="form-label">Qty : </label>
+                  <input type="number" class="form-control inputForm" placeholder="Qty." step="0.01"
+                    data-isrequired="true" data-isspecial="false" data-isspecial-type="number" name="money">
                 </div>
               </div>
-           
-            
-            <!-- Price -->
-            <div class="col-6 py-2 form-inline d-flex justify-content-around form-inline">
-              <label class="form-label"> Price : </label>
-              <input type="number" class="form-control inputForm" placeholder="Price" step="0.01" data-isrequired="true"
-                data-isspecial="false" data-isspecial-type="number" name="money">
-            </div>
+            </form>
+            <button class="btn btn-outline-dark mx-auto d-flex justify-content-center" id="submitQtyBtn">Add
+              Qty</button>
           </div>
-        </form>
-        <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitBtn">ADD</button>
-      </div>
-    </div>
-    <div class="tableDiv py-3" id="tableDiv">
-      <div class="jumbotron bg-light">
-        <h3 class="display-5 text-center"> Menu Price Chart</h3>
-        <div class="row justify-content-center py-3">
-          <div class="tblDiv" id="tblDataDiv">
-            <table class="table table-striped text-center" id="tblData"></table>
-            <!-- Vendor Master Table Generate Using JS -->
+          <div class="col-5" id="unitDiv">
+            <h2 class="display-5 text-center">Unit Master</h2>
+            <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
+              Border Red</small>
+            <form class="form-group">
+              <div class="form-row text-center justify-content-center">
+                <div class="col-10 py-2 form-inline d-flex justify-content-around">
+                  <label class="form-label">Unit : </label>
+                  <input type="text" class="form-control inputForm" placeholder="Unit" data-isrequired="true"
+                    data-isspecial="false" data-isspecial-type="unit" name="text">
+                </div>
+              </div>
+            </form>
+            <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitUnitBtn">Add
+              Unit</button>
           </div>
         </div>
       </div>
     </div>
+    <div class="tableDiv py-3" id="tableDiv">
+      <div class="jumbotron bg-light">
+        <h3 class="display-5 text-center"> Measurement Chart</h3>
+        <div class="row justify-content-around py-3">
+          <div class="col-5">
+            <h4 class="display-5 text-center">Qty Chart</h4>
+            <div class="tblDiv" id="tblDataQtyDiv">
+              <table class="table table-striped text-center" id="tblDataQty"></table>
+              <!-- Vendor Master Table Generate Using JS -->
+            </div>
+          </div>
+          <div class="col-5">
+            <h4 class="display-5 text-center">Unit Chart</h4>
+            <div class="tblDiv" id="tblDataUnitDiv">
+              <table class="table table-striped text-center" id="tblDataUnit"></table>
+              <!-- Vendor Master Table Generate Using JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+
   <footer>
     <div class="footerDiv">
       <div class="container align-items-center">
@@ -139,12 +159,10 @@
     </div>
   </footer>
 </body>
-<script src="Javascript/FoodMenu.js"></script>
-<script src="Javascript/common/Validation.js"></script>
-<script src="Javascript/common/DropDownCreate.js"></script>
-<script src="Javascript/common/CreateElement.js"></script>
-<script src="Javascript/common/AutoComplete.js"></script>
-<script src="Javascript/common/Sort.js"></script>
+<script src="../Javascript/QuantityUnit.js"></script>
+<script src="../Javascript/common/Validation.js"></script>
+<script src="../Javascript/common/CreateElement.js"></script>
+<script src="../Javascript/common/Sort.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

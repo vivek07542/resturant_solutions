@@ -8,7 +8,7 @@ submitBtnTop.addEventListener("click",function(){
         let array = [];
         let sortedArray = extractMenu(arrayOfOrder,array);
         let topSelection = sliceTopDishes(sortedArray,inputForm)
-        resetInputForm(inputForm);
+        // resetInputForm(inputForm);
         tableCall(topSelection);
     }
 });
