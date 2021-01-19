@@ -180,7 +180,7 @@ function tableAsPerSurving(objectOfValue) {
 
 function qtyCalculation(quantity, selectedServing, serving) {
     debugger;
-    let newQuantity = Math.ceil(Number(quantity) / Number(serving)) * Number(selectedServing);
+    let newQuantity = (Number(quantity) / Number(serving)) * Number(selectedServing);
     return newQuantity;
 }
 
