@@ -149,6 +149,7 @@ function editClick(editButton, input, localArray) {
             submitQtyBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);            
         }
         else if(elem.unit == parentChildren[1].innerText){
+            debugger;
             let submitUnitBtn = document.getElementById("submitUnitBtn");
             submitUnitBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);
         }
