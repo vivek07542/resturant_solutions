@@ -86,8 +86,8 @@ submitBtn.addEventListener("click", function () {
             document.getElementById("tableDiv").style.display = "none";
         }
         vendorIngridientDetailToLocalStorage(inputForm, table, vendorIngridientDetail, this);
-        resetInputForm(input);
-        tableCall(table, array);
+        resetInputForm(inputForm);
+        tableCall(table, vendorIngridientDetail);
         let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
         let createMode = true;
         createEveryVendorRow(vendorDetail,createMode);

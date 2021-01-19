@@ -34,9 +34,10 @@ function extractIngridient(array,emptyArray){
         ingridientReciepe.forEach(element =>{
             if(element.menuId === el.menuId){
                 let object = {};
-                object.ingridient = getIngridientIdToValue(element.ingridientId)
+                object.ingridient = getIngridientIdToValue(element.ingridientId);
+                object.unit = getUnitIdToValue(element.unitId);
                 object.quantity = Math.ceil(Number(getQtyIdToValue(element.qtyId) * el.quantity));
-                object.unit = getUnitIdToValue(element.unitId)
+                
                 emptyArray.push(object);
             }
         });
