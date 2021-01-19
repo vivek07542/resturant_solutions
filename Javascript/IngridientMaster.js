@@ -25,7 +25,7 @@ submitBtn.addEventListener("click", function () {
     if (validation(inputForm)) {
         alert("Succesfully Validate");
         ingridientDetailToLocalStorage(this);
-        resetInputForm(input);
+        resetInputForm(inputForm);
         tableCall();
     }
 });
