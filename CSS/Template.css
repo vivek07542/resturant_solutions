@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url("../Image/CoverImage.jpg");
+    background-color: #cccccc;
+    min-height: 100vh;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: 'Frank Ruhl Libre', serif;   
+    font-size:15px;
+}
+h1,h2,h3{
+    text-shadow:  0 0 4px rgba(0,0,0,0.2);
+}
+/* Main Body Content CSS */
+.mainDiv{
+    width:80%;
+    margin:0 auto;    
+}
+/* Footer CSS */
+.footerDiv{
+    height:40px;
+    background-color: white;
+    position: absolute;
+    width:100%;
+    bottom:0;
+    padding-top:5px;
+}
+.footerDiv div{
+    height: 30px;
+    bottom:0;
+    text-decoration: none;
+}
+.footerDiv div .col-2 a{
+    text-decoration: none;
+    color:#767676;
+    font-size:13px;
+}
+.fa {
+    padding: 5px;
+    font-size: 13px;
+    width: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: white;  
+  } 
+  .fa:hover, .footerDiv div a:hover {
+      opacity: 0.7;
+  }
+.fa-facebook {
+    background: #767676;
+    color: white;
+}  
+.fa-twitter {
+    background:
+    #767676;
+    color: white;
+}  
+.fa-google {
+    background:
+    #767676;
+    color: white;
+}
+.fa-linkedin {
+    background:
+    #767676;
+    color: white;
+}

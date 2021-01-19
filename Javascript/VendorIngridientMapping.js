@@ -77,7 +77,6 @@ function subRowDeleteBtn(subDeleteBtn) {
 let submitBtn = document.getElementById("submitBtn");
 submitBtn.addEventListener("click", function () {
     let inputForm = document.querySelectorAll(".inputForm");
-    
     if (validation(inputForm)) {
         let table = document.getElementById("tblData");
         let vendorIngridientDetail = JSON.parse(localStorage.getItem("vendorIngridientDetail"));
@@ -87,6 +86,8 @@ submitBtn.addEventListener("click", function () {
             document.getElementById("tableDiv").style.display = "none";
         }
         vendorIngridientDetailToLocalStorage(inputForm, table, vendorIngridientDetail, this);
+        resetInputForm(inputForm);
+        tableCall(table, vendorIngridientDetail);
         let vendorDetail = JSON.parse(localStorage.getItem("vendorDetail"));
         let createMode = true;
         createEveryVendorRow(vendorDetail,createMode);
@@ -147,8 +148,6 @@ function vendorIngridientDetailToLocalStorage(input, table, array, crntBtn) {
         array.push(objectDetail);
     }
     localStorage.setItem("vendorIngridientDetail", JSON.stringify(array));
-    resetInputForm(input);
-    tableCall(table, array);
 }
 // Create Object Of Vendor Price
 function createObjectOfVendorPrice(emptyArray) {

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Indian Resturant-Food From Heritage Served With</title>
+  <link rel="icon" href="../Image/ResturantLogo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/Template.css">
+  <link rel="stylesheet" href="../CSS/Validation.css">
+  <link rel="stylesheet" href="../CSS/QuantityUnitMaster.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="../Image/ResturantLogo.jpg" width="100" height="100" alt="">
+      </a>
+      <a class="navbar-brand" href="#">The Indian Resturant</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Food Menu<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="OrderFood.html">Order Food</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin Backend
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="QuantityUnit.html">Quantity & Unit</a>
+                  <a class="dropdown-item" href="IngridientMaster.html">Ingridient Master</a>
+                  <a class="dropdown-item" href="VendorMaster.html">Vendor Master</a>
+                  <a class="dropdown-item" href="VendorIngridientMapping.html">Vendor Ingridient Mapping</a>
+                  <a class="dropdown-item" href="IngridientReciepe.html">Ingridient Reciepe</a>
+                  <a class="dropdown-item" href="ReciepeGenerator.html">Reciepe Generator</a>
+                  <a class="dropdown-item" href="Inventory.html">Inventory</a>
+              </div>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Reports
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="OrderReport.html">Order Detail</a>
+                  <a class="dropdown-item" href="TopOrderDishes.html">Top Selling Dishes</a>
+              </div>
+          </li>
+      </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <div class="container mainDiv">
+    <div class="qtyUnitDiv">
+      <div class="jumbotron bg-light">
+        <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
+          Border Red</small>
+        <div class="row justify-content-around">
+          <div class="col-5" id="qtyDiv">
+            <h2 class="display-5 text-center">Qty Master</h2>
+            <form class="form-group">
+              <div class="form-row text-center justify-content-center">
+                <div class="col-10 py-2 form-inline d-flex justify-content-around">
+                  <label class="form-label">Qty : </label>
+                  <input type="number" class="form-control inputForm" placeholder="Qty." step="0.01"
+                    data-isrequired="true" data-isspecial="false" data-isspecial-type="number" name="money">
+                </div>
+              </div>
+            </form>
+            <button class="btn btn-outline-dark mx-auto d-flex justify-content-center" id="submitQtyBtn">Add
+              Qty</button>
+          </div>
+          <div class="col-5" id="unitDiv">
+            <h2 class="display-5 text-center">Unit Master</h2>
+            <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
+              Border Red</small>
+            <form class="form-group">
+              <div class="form-row text-center justify-content-center">
+                <div class="col-10 py-2 form-inline d-flex justify-content-around">
+                  <label class="form-label">Unit : </label>
+                  <input type="text" class="form-control inputForm" placeholder="Unit" data-isrequired="true"
+                    data-isspecial="false" data-isspecial-type="unit" name="text">
+                </div>
+              </div>
+            </form>
+            <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitUnitBtn">Add
+              Unit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tableDiv py-3" id="tableDiv">
+      <div class="jumbotron bg-light">
+        <h3 class="display-5 text-center"> Measurement Chart</h3>
+        <div class="row justify-content-around py-3">
+          <div class="col-5">
+            <h4 class="display-5 text-center">Qty Chart</h4>
+            <div class="tblDiv" id="tblDataQtyDiv">
+              <table class="table table-striped text-center" id="tblDataQty"></table>
+              <!-- Vendor Master Table Generate Using JS -->
+            </div>
+          </div>
+          <div class="col-5">
+            <h4 class="display-5 text-center">Unit Chart</h4>
+            <div class="tblDiv" id="tblDataUnitDiv">
+              <table class="table table-striped text-center" id="tblDataUnit"></table>
+              <!-- Vendor Master Table Generate Using JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footerDiv">
+      <div class="container align-items-center">
+        <div class="row text-center justify-content-center align-self-center">
+          <div class="col-2">
+            <a href=#>About us</a>
+          </div>
+          <div class="col-2">
+            <a href=#>Privacy</a>
+          </div>
+          <div class="col-2">
+            <a href="#">Direction</a>
+          </div>
+          <div class="col-2">
+            <a href="#">Connect Us</a>
+          </div>
+          <div class="col-3 d-flex justify-content-around">
+            <a href="#" class="fa fa-facebook d-flex justify-content-center align-self-center"></a>
+            <a href="#" class="fa fa-twitter d-flex justify-content-center align-self-center"></a>
+            <a href="#" class="fa fa-google d-flex justify-content-center align-self-center"></a>
+            <a href="#" class="fa fa-linkedin d-flex justify-content-center align-self-center"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="../Javascript/QuantityUnit.js"></script>
+<script src="../Javascript/common/Validation.js"></script>
+<script src="../Javascript/common/CreateElement.js"></script>
+<script src="../Javascript/common/Sort.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

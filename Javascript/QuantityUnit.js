@@ -59,13 +59,11 @@ function userLocalStorageSetUp() {
 }
 // Push Qty Value To Local Storage
 function detailToLocalStorage(input, arrayDetail, arrayDetailToLocalStorage, headers, table, crntBtn) {
-    debugger;
     let objectDetail = {};
     let measureId = crntBtn.getAttribute("data-uniqueId") === null ? 0 : crntBtn.getAttribute("data-uniqueId");
     let isEditMode = measureId > 0 ? true : false;
     let maxId = 0;
     if (isEditMode) {
-        debugger;
         let objIndex = arrayDetail.findIndex((obj => obj.Id == measureId));
         input.forEach(element => {
             let selectType = element.getAttribute("data-isspecial-type");
@@ -80,7 +78,6 @@ function detailToLocalStorage(input, arrayDetail, arrayDetailToLocalStorage, hea
         });
     }
     else {
-        
         maxId = sort(arrayDetail);
         objectDetail.Id = maxId + 1;
         input.forEach(element => {   
@@ -152,6 +149,7 @@ function editClick(editButton, input, localArray) {
             submitQtyBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);            
         }
         else if(elem.unit == parentChildren[1].innerText){
+            debugger;
             let submitUnitBtn = document.getElementById("submitUnitBtn");
             submitUnitBtn.setAttribute("data-uniqueId", parentChildren[0].innerText);
         }

@@ -1,0 +1,9 @@
+.validateRedBorder{
+    border:1px solid red;
+}
+.validateGreenBorder{
+    border:1px solid green;
+}
+#spanText{
+    display:none;
+}

@@ -1,0 +1,9 @@
+#foodItemDiv{
+    width:100%;
+}
+#tblDataDiv{
+    width:100%;
+}
+.tableEachCell{
+    text-transform:capitalize;
+ }

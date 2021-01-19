@@ -25,6 +25,8 @@ submitBtn.addEventListener("click", function () {
     if (validation(inputForm)) {
         alert("Succesfully Validate");
         ingridientDetailToLocalStorage(this);
+        resetInputForm(inputForm);
+        tableCall();
     }
 });
 // Push Vendor Details To The Local Storage.
@@ -71,8 +73,6 @@ function ingridientDetailToLocalStorage(crntBtn) {
         ingridientDetail.push(objectDetail);
     }   
     localStorage.setItem("ingridientDetail", JSON.stringify(ingridientDetail));
-    resetInputForm(input);
-    tableCall();
 }
 // Reset Function
 function resetInputForm(input) {
