@@ -80,6 +80,7 @@ function detailToLocalStorage(input, arrayDetail, arrayDetailToLocalStorage, hea
         });
     }
     else {
+        
         maxId = sort(arrayDetail);
         objectDetail.Id = maxId + 1;
         input.forEach(element => {   
