@@ -11,4 +11,8 @@ function sort(array) {
         }
         return idsLength;
     }
+    else{
+       let idsLength = 0
+       return idsLength; 
+    }
 }
