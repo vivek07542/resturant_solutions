@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/InvestmentBudget.css">
+    <link rel="stylesheet" href="../CSS/OrderReport.css">
+    <link rel="stylesheet" href="../CSS/ProfitLossMaster.css">
     <link rel="stylesheet" href="../CSS/Validation.css">
     <link rel="stylesheet" href="../CSS/Template.css">
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -75,52 +75,46 @@
     <div class="container mainDiv">
         <div class="vendorMasterDiv">
             <div class="jumbotron bg-light">
-                <h2 class="display-4 text-center">Investment Budget Expense</h2>
-                <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With
-                    Border Red</small>
+                <h2 class="display-4 text-center">Profilt Loss Master</h2>
+                <small class="text-center form-text text-danger py-3" id="spanText">Some Error With The Input Form With Border Red</small>
                 <form class="form-group" autocomplete="off">
-                    <!-- Budget Allocated -->
-                    <div class="form-row text-center d-flex justify-content-center py-2" id="totalTextLabel">
-                        <div class="col-md-6 py-2 ml-2 form-inline d-flex justify-content-around">
-                            <label class="form-label"> Budget Allocated : </label>
-                            <input type="number" class="form-control inputForm " id="totalPriceInput"
-                                placeholder="Budget Allocated" step="0.01" data-isrequired="true" data-isspecial="false"
-                                data-isspecial-type="budgetAllocated" value="200000" name="money">
-                        </div>
-                    </div>
                     <div class="form-row text-center d-flex justify-content-around" id="textLabel">
-                        <div class="col-md-3 py-2 form-inline d-flex justify-content-around">
-                            <label class="form-label"> Date : </label>
-                            <input type="month" class="form-control inputForm" id="date" data-isrequired="false"
-                                data-isspecial="true" data-isspecial-type="date" name="date">
+                        <div class="col-6 py-2 form-inline d-flex justify-content-around" >
+                            <label class="form-label"> Date From : </label>
+                            <input type="date" class="form-control inputForm" id="date" data-isrequired="false" 
+                            data-isspecial="true" data-isspecial-type="dateFrom" name="date">
                         </div>
-                        <div class="col-md-4 py-2 form-inline d-flex justify-content-around">
-                            <label class="form-label">Expense Detail : </label>
-                            <input type="text" class="form-control inputForm" id="customerName"
-                                placeholder="Expense Detail" data-isrequired="true" data-isspecial="false"
-                                data-isspecial-type="expense">
+                        <div class="col-6 py-2 form-inline d-flex justify-content-around" >
+                            <label class="form-label"> Date To : </label>
+                            <input type="date" class="form-control inputForm" id="date" data-isrequired="false" 
+                            data-isspecial="true" data-isspecial-type="dateTo" name="date">
                         </div>
-                        <div class="col-md-3 py-2 form-inline d-flex justify-content-around">
-                            <label class="form-label">Amount :</label>
-                            <input type="number" class="form-control inputForm " id="priceAmount"
-                                placeholder="Amount" step="0.01" data-isrequired="true" data-isspecial="false"
-                                data-isspecial-type="budgetExpense" name="money">
-                        </div>
+                        
                     </div>
                 </form>
-                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitBtn">SAVE</button>
+                <button class="btn btn-outline-dark d-flex justify-content-center mx-auto" id="submitMasterBtn">SHOW</button>
             </div>
         </div>
-        <div class="tableDiv py-3" id="tableDiv">
+        <div class="tableDiv py-3" id="tableBox">
             <div class="jumbotron bg-light">
-                <h3 class="display-5 text-center">Investment Budget Expense Chart</h3>
-                <div class="tblDiv" id="tblDataDiv">
-                    <div class="table table-striped text-center" id="tblData"></div>
-                    <!-- Vendor Master Table Generate Using JS -->
+                <h3 class="display-5 text-center">Profit Loss Chart</h3>
+                <div class="row justify-content-center py-3" id="tableDiv">
+             
+
                 </div>
             </div>
         </div>
-    </div>
+        <div class="markContainer " id="markContainer">
+            <div class="markContent" id="markContent">
+                <div class="close" id="closeDynamic">+</div>
+                <h3 class="display-5 my-1 text-center">Order Detail</h3>
+                <div class="jumbotron text-center my-5" id="createPostPopup">
+                    <div class="row justify-content-center py-3" id="generateTable">
+                        <!-- Generate Order Detail in Pop Up -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="footerDiv">
@@ -149,12 +143,14 @@
         </div>
     </footer>
 </body>
-<script src="../Javascript/InvestmentBudget.js"></script>
+<!-- <script src="../Javascript/OrderReport.js"></script> -->
+<script src="../Javascript/ProfitLossMaster.js"></script>
 <script src="../Javascript/common/Validation.js"></script>
 <script src="../Javascript/common/DropDownCreate.js"></script>
 <script src="../Javascript/common/CreateElement.js"></script>
 <script src="../Javascript/common/AutoComplete.js"></script>
 <script src="../Javascript/common/Sort.js"></script>
+<script src="../Javascript/common/IngridientPriceCalculation.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>

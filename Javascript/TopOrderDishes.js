@@ -20,10 +20,10 @@ function filterOrder(orderDetail,inputForm){
         let selectType = element.getAttribute("data-isspecial-type");
         switch (selectType) {
             case "dateTo":
-                 startDate = new Date(element.value);
+                 endDate = new Date(element.value);
                 break;
             case "dateFrom":
-                 endDate = new Date(element.value);
+                 startDate = new Date(element.value);
                 break;                
         }
     });

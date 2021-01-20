@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+}
+.markContainer{
+    width:98.5vw;
+    min-height:700px;
+    height:140vw;
+    /* overflow-y:inherit; */
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 100;
+  }
+  .markContent{
+    width:800px;  
+    min-height:300px;
+    height:auto;
+    background-color: white;
+    border-radius: 4px;
+    padding:20px;
+    text-align: center;  
+    position: relative;
+    padding-bottom:60px;
+    font-size: 14px;
+  }
+  .close{
+    transform: rotate(45deg);
+  }  
+  /* #createPostPopup{
+      display:none;      
+  } */
+  .tblBox{
+      width:100%;
+  }
+  .greenText{
+      color:green;
+  }

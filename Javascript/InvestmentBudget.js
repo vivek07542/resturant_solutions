@@ -67,6 +67,8 @@ function monthlyExpenseToLocalStorage(crntBtn) {
                     break;
             }
         });
+        objectDetail.recoveryamount = 0;
+        objectDetail.modifieddate = "-";
         investmentExpenseDetail.push(objectDetail);
     }   
     localStorage.setItem("investmentExpenseDetail", JSON.stringify(investmentExpenseDetail));
@@ -85,7 +87,7 @@ function resetInputForm(input) {
 }
 // Create Table
 function tableCall() {
-    let headers = ["Id", "Expense Detail", "Month", "Amount","Action"];
+    let headers = ["Id", "Expense Detail", "Month", "Amount","Recovery Amount","Last Modified","Action"];
 
     let table = document.getElementById("tblData");
     let tableStructure = createElements(table, "table", "tableStructure", null, null, null, null);
@@ -113,6 +115,12 @@ function tableCall() {
             let cellPrice = createElements(row, "td", "tableEachCell", null, null, null, "col");
             let textNodePrice = document.createTextNode(per.amount);
             cellPrice.appendChild(textNodePrice);
+            let cellRecovery = createElements(row, "td", "tableEachCell", null, null, null, "col");
+            let textNodeRecovery = document.createTextNode(per.recoveryamount);
+            cellRecovery.appendChild(textNodeRecovery);
+            let cellmodifiedDate = createElements(row, "td", "tableEachCell", null, null, null, "col");
+            let textNodemodifiedDate = document.createTextNode(per.modifieddate);
+            cellmodifiedDate.appendChild(textNodemodifiedDate);
             let cellBtn = createElements(row, "td", "d-flex justify-content-around", "action", null, null, null);
             let editButton = createElements(cellBtn, "button", "btn btn-outline-dark", null, "Edit", null, "col")
             editButton.addEventListener("click", function () {

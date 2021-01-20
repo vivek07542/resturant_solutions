@@ -78,14 +78,15 @@ function resetInputForm(input) {
         ele.classList.remove("validateGreenBorder");
         ele.classList.remove("validateRedBorder");
     });
-    // document.getElementById("tblData").innerHTML = "";
     document.getElementById("tblDataDiv").innerHTML = "";
+    // document.getElementById("tblDataDiv").innerHTML = "";
     document.getElementById("spanText").style.display = "none";
 }
 // Create Table
 function tableCall() {
     let headers = ["Id", "Expense Detail", "Month", "Amount","Action"];
-    let table = document.getElementById("tblData");
+    let tableDiv = document.getElementById("tblDataDiv");
+    let table = createElements(tableDiv, "table", "table table-striped text-center","tblData", null, null, null);
     let tableHead = createElements(table, "thead", null, null, null, null, null);
     let headerRow = createElements(tableHead, "tr", null, null, null, null, "row");
     headers.forEach(headerText => {
@@ -120,8 +121,8 @@ function tableCall() {
                 deleteUser(deleteBtn,monthlyExpenseDetail);
             });
         });
-        let tblDataDiv = document.getElementById("tblDataDiv");
-        let priceContainer = createElements(tblDataDiv, "div", "col-12 py-2 form-inline d-flex justify-content-around", null, null, null, null);
+        // let tblDataDiv = document.getElementById("tblDataDiv");
+        let priceContainer = createElements(tableDiv, "div", "col-12 py-2 form-inline d-flex justify-content-around", null, null, null, null);
         let netPriceLabel = createElements(priceContainer, "label", "form-label", null, "Total Monthly Expense :", null, null);
         let totalAmount = 0;
         let totalExpense = totalAmountExpense(monthlyExpenseDetail,totalAmount)

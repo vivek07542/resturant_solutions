@@ -60,6 +60,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="OrderReport.html">Order Detail</a>
                             <a class="dropdown-item" href="TopOrderDishes.html">Top Selling Dishes</a>
+                            <a class="dropdown-item" href="ProfitLossMaster.html">Profit Loss Master</a>
                         </div>
                     </li>
                 </ul>
@@ -79,7 +80,7 @@
                     <div class="form-row text-center d-flex justify-content-around" id="textLabel">
                             <div class="col-4 py-2 ml-2 form-inline d-flex justify-content-around">
                                 <label class="form-label"> Date : </label>
-                                <input type="month" class="form-control inputForm" id="date" data-isrequired="false" 
+                                <input type="date" class="form-control inputForm" id="date" data-isrequired="false" 
                                 data-isspecial="true" data-isspecial-type="date" name="date">
                             </div> 
                         
@@ -105,7 +106,7 @@
             <div class="jumbotron bg-light">
                 <h3 class="display-5 text-center">Monthly Expense Chart</h3>
                 <div class="tblDiv" id="tblDataDiv">
-                    <table class="table table-striped text-center" id="tblData"></table>
+                    <!-- <table class="table table-striped text-center" id="tblData"></table> -->
                     <!-- Vendor Master Table Generate Using JS -->
                   </div>
                 </div>
